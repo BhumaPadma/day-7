@@ -1,0 +1,66 @@
+create table employee (name varchar(200), salary int);
+
+insert into employee(name,salary) values('abc','10000');
+insert into employee(name,salary) values('def','100000');
+insert into employee(name,salary) values('ghi','20000');
+insert into employee(name,salary) values('jkl','30000');
+
+select * from employee;
+
+select name from employee where salary > 10000 and salary<30000 ;
+select distinct top 2 salary from employee order by salary desc;
+select max(salary) as salary from employee where salary<(select max(salary) from employee);
+
+SALARY
+30000
+
+
+create table salesmans ( salesman_id int, name varchar(200), city varchar(100), commission number(2,2));
+insert into salesmans(salesman_id,name,city,commission) values ('5001','james','newyork','0.15');
+insert into salesmans(salesman_id,name,city,commission) values ('5002','nail','paris','0.12');
+insert into salesmans(salesman_id,name,city,commission) values ('5003','alex','delhi','0.11');
+insert into salesmans(salesman_id,name,city,commission) values ('5004','mc lyon','rome','0.14');
+insert into salesmans(salesman_id,name,city,commission) values ('5005','paul','london','0.13');
+insert into salesmans(salesman_id,name,city,commission) values ('5006','lauson','san jose','0.16');
+
+select * from salesmans;
+select name, city from salesmans where city = 'paris';
+
+NAME	CITY
+nail	paris
+
+
+create table winners(year int,subject varchar(100),winner varchar(100), country varchar(100), category varchar(100));
+insert into winners(year,subject,winner, country, category) values ('1970','physics','hannes alfven','sweden','scientist');
+insert into winners(year,subject,winner, country, category) values ('1970','physics','louis neel','france','scientist');
+insert into winners(year,subject,winner, country, category) values ('1970','chemistry','ulf von euler','france','scientist');
+insert into winners(year,subject,winner, country, category) values ('1970','physicology','bernard katz','sweden','scientist');
+insert into winners(year,subject,winner, country, category) values ('1970','physicology','aleksandr','germany','scientist');
+insert into winners(year,subject,winner, country, category) values ('1970','literature','paul','russia','linguist');
+insert into winners(year,subject,winner, country, category) values ('1970','economics','luis federico','usa','economist');
+insert into winners(year,subject,winner, country, category) values ('1970','physicology','hannes alfven','usa','scientist');
+select * from winners;
+
+YEAR	SUBJECT 	WINNER   	 COUNTRY	CATEGORY
+1970	physics 	hannes alfven	sweden	       scientist
+1970	physics		louis neel	france		scientist
+1970	chemistry	ulf von euler	france		scientist
+1970	physicology	bernard katz	sweden		scientist
+1970	physicology	aleksandr	germany		scientist
+1970	literature	paul		russia		linguist
+1970	economics	luis federico	usa		economist
+1970	physicology	hannes alfven	usa		scientist
+
+
+select year, subject, winner,country from winners where year between '1965' and '1975';
+YEAR	SUBJECT	WINNER	COUNTRY
+1970	physics	hannes alfven	sweden
+1970	physics	louis neel	france
+1970	chemistry	ulf von euler	france
+1970	physicology	bernard katz	sweden
+1970	physicology	aleksandr	germany
+1970	literature	paul	russia
+1970	economics	luis federico	usa
+1970	physicology	hannes alfven	usa
+
+
